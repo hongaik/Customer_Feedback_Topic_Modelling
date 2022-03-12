@@ -151,7 +151,43 @@ In my context, I decided to inspect the category "Others", which consists of tex
 
 We can observe that the tuned BERT model is not doing as well as originally thought, although the F1 score on the test set was over 90%. This is ironic given that the language model has been tuned toward the context, but it could also have been over-tuned. Together with further random validation checks, I am convinced that the Word2Vec model is the best and has satisfactorily classified my texts.
 
+### Sentiment Analysis
+
+While it's important to know what customers like and dislike about our service or product, higher emphasis is usually placed on negative reviews. To further distinguish between positive and negative reviews, I used HuggingFace's transformer models to label my documents.
+
+![](assets/medium_17.jpg)
+![](assets/medium_16.jpg)
+
+Though bart-large-mnli is typically used for text classification, it performs surprisingly well for sentiment analysis tasks.
+
+```
+facebook = pipeline("zero-shot-classification",
+                      model="facebook/bart-large-mnli", device=0, framework="pt"
+                     )
+                     
+text="The price is $50"
+labels = ["positive", "negative"]
+
+facebook(text, labels, multi_label=False)
+```
+Output:
+
+```
+{'sequence': 'The price is $50',
+ 'labels': ['positive', 'negative'],
+ 'scores': [0.5607846975326538, 0.4392153024673462]}
+```
+
+Here, I chose bart-large-mnli over the distilbert-base-uncased because I wanted to minimise false negatives ie. I wanted my negative reviews to be clean, at the expense of missing out on some.
+
+### Final Deliverable
+
+To help stakeholders quickly understand the data as well as provide flexibility to obtain different cuts, I created a simple interactive Tableau dashboard to aid data exploration.
+
+![](assets/medium_14.jpg)
+
 ### Conclusion
+
 Even with the advance of NLP techniques, topic modelling is notoriously difficult to have a good sense of the accuracy without having sufficient labelled data. With this pipeline, despite some of its inherent flaws (eg. data leakage) I could train up a decent model to perform classification with only a small amount of labelled data. In other words, small efforts for disproportionately large gains. The pipeline also provides much whitespace to experiment and fine-tune to the domain problem in the data augmentation and model training phases, which is typically not possible in unsupervised learning problems.
 
 ### Future Work
