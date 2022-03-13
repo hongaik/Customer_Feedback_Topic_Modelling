@@ -1,11 +1,7 @@
 # Semi-Supervised Learning in Topic Modelling
 *A useful technique when you have a lot of text and no labels*
 
-*By: Goh Hong Aik*
-
-*LinkedIn: https://www.linkedin.com/in/hongaikgoh/*
-
-*Email: goh.hongaik@gmail.com*
+By: Goh Hong Aik ([LinkedIn](https://www.linkedin.com/in/hongaikgoh/) | [Email](goh.hongaik@gmail.com) | [App Deployment](https://huggingface.co/spaces/hongaik/service_text_classification))
 
 ### Introduction
 
@@ -185,6 +181,10 @@ Here, I chose bart-large-mnli over the distilbert-base-uncased because I wanted 
 To help stakeholders quickly understand the data as well as provide flexibility to obtain different cuts, I created a simple interactive Tableau dashboard to aid data exploration.
 
 ![](assets/medium_14.jpg)
+
+The model can also be used on future documents, if the domain is similar. I deployed the model [(link)](https://huggingface.co/spaces/hongaik/service_text_classification) on HuggingFace's Spaces for stakeholders to help themselves in future.
+
+![](assets/medium_18.jpg)
 
 ### Conclusion
 
