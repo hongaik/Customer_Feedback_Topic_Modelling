@@ -1,7 +1,9 @@
 # Semi-Supervised Learning in Topic Modelling
 *A useful technique when you have a lot of text and no labels*
 
-By: Goh Hong Aik ([LinkedIn](https://www.linkedin.com/in/hongaikgoh/) | [Email](goh.hongaik@gmail.com) | [App Deployment](https://huggingface.co/spaces/hongaik/service_text_classification))
+By: Goh Hong Aik ([LinkedIn](https://www.linkedin.com/in/hongaikgoh) | [App Deployment](https://huggingface.co/spaces/hongaik/service_text_classification))
+
+Email: goh.hongaik@gmail.com
 
 ### Introduction
 
